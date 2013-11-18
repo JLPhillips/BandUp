@@ -1,15 +1,23 @@
 extends ../template/layout
 
 block content
-	.full-width#landerBack
-		img(src='../images/buMainBlack.png' draggable='false').landerLogo
-		p.landerBlurb
-			| The ultimate tool <br>
-			| for band organization and management!
-		p.signUp START NOW
-	.row.section1
-		.small-12.columns
-			img(src='../images/buAlt.png').sublogo
-			p(class='subBlurb').
-				Real-time calendar that automatically syncs times up and tells you best times for practices and shows (eventually pulls data from Google and iPhone/Android calendars) and will give you notifications straight to your browser or phone via text!
+  #myModal.reveal-modal
+   h2 I have it.
+    p.lead
+      | Your couch.  It is mine.
+    p.
+      Im a cool paragraph that lives inside of an even cooler modal. Wins</p>
+    a.close-reveal-modal &#215;
+  
+  .full-width#landerBack
+    img(src='../images/buMainBlack.png' draggable='false').landerLogo
+    p.landerBlurb
+      | The ultimate tool <br>
+      | for band organization and management!
+    p.signUp.reveal-link START NOW
+  .row.section1
+    .small-12.columns
+      img(src='../images/buAlt.png').sublogo
+      p(class='subBlurb').
+        Real-time calendar that automatically syncs times up and tells you best times for practices and shows ( eventually pulls data from Google and iPhone-Android calendars ) and will give you notifications straight to your browser or phone via text!
 
