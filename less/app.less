@@ -6,13 +6,21 @@
 @flatShadow: 0px 3px 0px rgba(0, 0, 0, 0.2);
 
 
+@-webkit-keyframes spinCycle
+{
+0%   {transform: rotate(0deg);}
+25%  {transform: rotate(180deg);}
+50%  {transform: rotate(360deg);}
+75%  {transform: rotate(180deg);}
+100% {transform: rotate(0deg);}
+}
+
 
 ul.right {
   background-color: black;
 }
 
 body{
-  background-color: @bandupBlue;
 }
 
 h1{
@@ -33,7 +41,7 @@ h1{
 }
 
 .circle{
-	background-color: black;
+	background-color: rgba(0, 0, 0, 0.5);
 	width: 150px;
 	height: 150px;
 	position: absolute;
@@ -54,4 +62,65 @@ h1{
 	top: 0px;
 	width: 100px;
 	left: 476px;
+	-webkit-animation-name: spinCycle;
+	-webkit-animation-duration: 5s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+}
+
+.landerLogo{
+	position: absolute;
+	left: 270px;
+	top: 150px;
+	width: 550px;
+}
+
+.landerBlurb{
+	position: absolute;
+	top: 300px;
+	left: 190px;
+	font-size: 20px;
+	letter-spacing: 10px;
+	text-align: center;
+	line-height: 40px;
+}
+
+.signUp{
+	font-weight: bold;
+	text-shadow:@flatShadow;
+	width: 200px;
+	padding-top: 30px;
+	height: 80px;
+	background-color: @bandupBlue;
+	color:white;
+	position: absolute;
+	top: 390px;
+	left: 450px;
+	text-align: center;
+	letter-spacing: 5px;
+	border-radius: 30px;
+	box-shadow: @flatShadow;
+	&:hover{
+		background-color: lighten(@bandupBlue, 10%);
+		cursor: pointer;
+
+	}
+}
+
+.section1{
+	padding-top:80px;
+
+
+	img{
+		width: 250px;
+		height: 250px;
+		margin: 0px 386px;
+		margin-bottom: 35px;
+
+	}
+
+	.subBlurb{
+		text-align: center;
+		line-height: 35px;
+	}
 }
