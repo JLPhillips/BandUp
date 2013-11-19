@@ -66,6 +66,29 @@ ul.right {
   }
 }
 
+.submit{
+  font-weight: bold;
+  text-shadow:@flatShadow;
+  width: 200px;
+  height: 60px;
+  background-color: @bandupBlue;
+  color:white;
+  margin: auto;
+  text-align: center;
+  letter-spacing: 5px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: @flatShadow;
+  -moz-box-shadow: @flatShadow;
+  box-shadow: @flatShadow;
+  &:hover{
+    background-color: lighten(@bandupBlue, 10%);
+    cursor: pointer;
+
+  }
+}
+
 #left, #middle, #right {
   height: 580px;
   width: 303px;
@@ -127,25 +150,41 @@ h1{
 	background-color: rgba(0, 0, 0, 0.5);
 	width: 150px;
 	height: 150px;
-	position: absolute;
-	border-radius: 100px;
+	position: relative;
+	-webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
 	top: -40px;
-	left: 450px;
-	box-shadow: @flatShadow;
+  margin: auto;
+	-webkit-box-shadow: @flatShadow;
+  -moz-box-shadow: @flatShadow;
+  box-shadow: @flatShadow;
+}
+
+.right {
+  position: relative;
+  top: -148px;
 }
 
 .navLogo{
-	position: absolute;
-	top:-25px;
-	width: 200px;
-	left: 425px;
+	position: relative;
+  top: 56px;
+  margin: auto;
+	width: 80px;
+  height: 80px;
+  background: url("../images/buMiniWhite2.png") center no-repeat;
+  background-size: 90%;
 }
 
 .whiteDots{
-	position: absolute;
-	top: 0px;
+  background: url("../images/whiteDots.png") center no-repeat;
+  background-size: 100%;
+	position: relative;
+	top: -35px;
 	width: 100px;
-	left: 476px;
+  height: 100px;
+  margin: auto;
+
 	-webkit-animation-name: spinCycle;
 	-webkit-animation-duration: 100s;
 	-webkit-animation-timing-function: linear;

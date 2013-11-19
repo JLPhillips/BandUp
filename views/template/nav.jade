@@ -5,9 +5,11 @@
         h1:a(href='/') BAND UP
     section.top-bar-section
       .circle
-      a(href='/')
-        img(src="../images/miniLogoWhite.png").navLogo
-        img(src="../images/whiteDots.png").whiteDots
+        a#logo(href='/')
+          .navLogo
+          .whiteDots
+        //- img(src="../images/miniLogoWhite.png").navLogo
+        //- img(src="../images/whiteDots.png").whiteDots
       ul.right
         //- li.divider
         li.active: a(href='#').button.radius.reveal-link Sign Up | Log In
