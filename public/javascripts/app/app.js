@@ -6,11 +6,8 @@ var socket;
 
 function initialize(){
   $(document).foundation();
-  $('body').hide().fadeIn(2000); 
+  $('body').hide().fadeIn(4000); 
   initializeSocketIO();
-  $('a.reveal-link').trigger('click',showMyThing);
-	$('a.close-reveal-modal').trigger('click');
-
 }
 
 function initializeSocketIO(){
@@ -23,8 +20,4 @@ function initializeSocketIO(){
 
 function socketConnected(data){
   console.log(data);
-}
-
-function showMyThing(){
-$('#myModal').foundation('reveal', 'open');
 }

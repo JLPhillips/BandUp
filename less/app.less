@@ -8,13 +8,21 @@
 
 @-webkit-keyframes spinCycle
 {
-0%   {transform: rotate(0deg);}
-25%  {transform: rotate(180deg);}
-50%  {transform: rotate(360deg);}
-75%  {transform: rotate(180deg);}
-100% {transform: rotate(0deg);}
+0%   {-webkit-transform: rotate(0deg);}
+25%  {-webkit-transform: rotate(180deg);}
+50%  {-webkit-transform: rotate(360deg);}
+75%  {-webkit-transform: rotate(180deg);}
+100% {-webkit-transform: rotate(0deg);}
 }
 
+@-moz-keyframes spinCycle
+{
+0%   {-moz-transform: rotate(0deg);}
+25%  {-moz-transform: rotate(180deg);}
+50%  {-moz-transform: rotate(360deg);}
+75%  {-moz-transform: rotate(180deg);}
+100% {-moz-transform: rotate(0deg);}
+}
 
 ul.right {
   background-color: black;
@@ -104,10 +112,15 @@ h1{
 	width: 100px;
 	left: 476px;
 	-webkit-animation-name: spinCycle;
-	-webkit-animation-duration: 5s;
+	-webkit-animation-duration: 100s;
 	-webkit-animation-timing-function: linear;
 	-webkit-animation-iteration-count: infinite;
+	-moz-animation-name: spinCycle;
+	-moz-animation-duration: 100s;
+	-moz-animation-timing-function: linear;
+	-moz-animation-iteration-count: infinite;
 }
+
 
 .landerLogo{
 	position: absolute;
@@ -164,4 +177,28 @@ h1{
 		text-align: center;
 		line-height: 35px;
 	}
+}
+
+
+.section2{
+	background-color: @bandupBlue;
+}
+
+#contactUs{
+	background-color: @bandupWhite;
+	border-radius: 10px;
+	box-shadow: @flatShadow;
+	padding: 20px;
+
+}
+
+h4{
+	color:white;
+	text-shadow: @flatShadow;
+	font-variant: small-caps;
+	letter-spacing: 10px;
+}
+
+fieldset{
+	border:0px;
 }
