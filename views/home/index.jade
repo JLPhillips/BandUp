@@ -47,9 +47,11 @@ block content
           textarea(name='message')
           input(type='submit').submit Send
   #myModal.reveal-modal
-   h2 I have it.
-    p.lead
-      | Your couch.  It is mine?
-    p.
-      Im a cool paragraph that lives inside of an even cooler modal. Wins</p>
+    h3 Sign Up Today
+    form#signUpForm(action='post' method='#')
+      label(for='email') Email:
+      input(type='text' name='email') 
+      label(for='password')
+      input(type='password' name='password') 
+      input(type='submit').button.radius Sign Up
     a.close-reveal-modal &#215;
