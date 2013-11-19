@@ -6,6 +6,7 @@ var socket;
 
 function initialize(){
   $(document).foundation();
+  $('body').hide().fadeIn(4000); 
   initializeSocketIO();
 }
 
