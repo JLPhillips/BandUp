@@ -28,14 +28,49 @@ ul.right {
   background-color: black;
 }
 
-body{
+#landing {
+  background-color: @bandupGreen;
+}
+
+#textbox {
+  width: 250px;
+  margin: auto;
+}
+
+#landingh1 {
+  color: black;
+  position: relative;
+  top: -20px;
+  font-size: 40px;
+}
+
+.checkItOut{
+  font-weight: bold;
+  text-shadow:@flatShadow;
+  width: 200px;
+  padding-top: 30px;
+  height: 80px;
+  background-color: @bandupGreen;
+  color:white;
+  position: relative;
+  margin: auto;
+  text-align: center;
+  letter-spacing: 5px;
+  border-radius: 30px;
+  box-shadow: @flatShadow;
+  top: 50px;
+  &:hover{
+    background-color: lighten(@bandupGreen, 10%);
+    cursor: pointer;
+
+  }
 }
 
 #left, #middle, #right {
   height: 580px;
   width: 303px;
   margin: 80px 10px;
-  background-color: rgba(230, 230, 230, 0.5);
+  background-color: rgba(230, 230, 230, 1);
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
