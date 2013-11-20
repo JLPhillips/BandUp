@@ -24,12 +24,39 @@
 100% {-moz-transform: rotate(0deg);}
 }
 
+#supanavbar {
+  background-color: black;
+  width: 100%;
+  height: 45px;
+  position: fixed;
+  z-index: 200;
+}
+
+.loginbutton {
+  height: 30px;
+  width: 125px;
+  font-size: 15px;
+  color: white;
+  border: 1px solid @bandupBlue;
+  background-color: transparent;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  padding: 5px;
+  float: right;
+  position: relative;
+  right: 40px;
+  top: -143px;
+}
+
 ul.right {
   background-color: black;
 }
 
 #landing {
   background-color: @bandupGreen;
+  height: 100%;
+  width: 100%;
 }
 
 #textbox {
@@ -102,7 +129,7 @@ ul.right {
   box-shadow: 5px 5px 15px black;
   float: left;
   position: relative;
-  top: 20px;
+  // top: 50px;
 }
 
 #phone {
@@ -143,7 +170,14 @@ h1{
 #landerBack{
 	background: url('http://www.wallpaperup.com/uploads/wallpapers/2012/12/25/26465/a87415be3af22aa16aa059c0442dde90.jpg');
 	background-size: cover;
-	padding-top: 90px;
+	padding-top: 100px;
+  position: relative;
+  top: 45px;
+}
+
+.top-bar-section {
+  width: 1000px;
+  margin: auto;
 }
 
 .circle{
@@ -170,7 +204,7 @@ h1{
 	position: relative;
   top: 56px;
   margin: auto;
-	width: 80px;
+	width: 79px;
   height: 80px;
   background: url("../images/buMiniWhite2.png") center no-repeat;
   background-size: 90%;
@@ -181,7 +215,7 @@ h1{
   background-size: 100%;
 	position: relative;
 	top: -35px;
-	width: 100px;
+	width: 99px;
   height: 100px;
   margin: auto;
 
@@ -203,26 +237,26 @@ h1{
 }
 
 .landerBlurb{
-font-size: 20px;
-letter-spacing: 10px;
-text-align: center;
-line-height: 40px;
-margin: 10px auto;
+  font-size: 20px;
+  letter-spacing: 10px;
+  text-align: center;
+  line-height: 40px;
+  margin: 10px auto;
 }
 
 .signUp{
-font-weight: bold;
-text-shadow: 0 3px 0 rgba(0,0,0,0.2);
-width: 250px;
-padding-top: 15px;
-height: 50px;
-background-color: #21798a;
-text-align: center;
-margin: 40px auto;
-color: white;
-letter-spacing: 5px;
-border-radius: 10px;
-box-shadow: 0 3px 0 rgba(0,0,0,0.2);
+  font-weight: bold;
+  text-shadow: 0 3px 0 rgba(0,0,0,0.2);
+  width: 250px;
+  padding-top: 15px;
+  height: 50px;
+  background-color: #21798a;
+  text-align: center;
+  margin: 40px auto;
+  color: white;
+  letter-spacing: 5px;
+  border-radius: 10px;
+  box-shadow: 0 3px 0 rgba(0,0,0,0.2);
 	&:hover{
 		background-color: lighten(@bandupBlue, 10%);
 		cursor: pointer;
@@ -237,7 +271,7 @@ box-shadow: 0 3px 0 rgba(0,0,0,0.2);
 		display: block;
 		width: 250px;
 		height: 250px;
-		
+
 		margin:0px auto 35px auto;
 
 	}
