@@ -6,6 +6,8 @@
     "start": "node app.js"
   },
   "dependencies": {
+  	"angular":"*",
+  	"google-calendar":"*",
     "express": "*",
     "jade": "*",
     "express-less": "*",
