@@ -7,14 +7,26 @@ var socket;
 function initialize(){
   $(document).foundation();
   $('body').hide().fadeIn(4000);
+  $("#chatbox").hide();
   $('#chatbutton').on("click", clickChatButton);
   $('#chatsendbutton').on("click", clickChatSendButton);
+  $('#chatbox').draggable({revert: false});
   initializeSocketIO();
+}
 
+function dragChat(){
+  $("#chatbox").draggable();
 }
 
 function clickChatButton(){
   $("#chatbox").toggleClass("hidden");
+  if(!$("#chatbox").hasClass("hidden")){
+    $("#chatbox").hide().fadeIn(500);
+    $("#chatbutton").css("background-color", "#21798a");
+  }else{
+    $("#chatbox").show().fadeOut(500);
+    $("#chatbutton").css("background-color", "black");
+  }
 }
 
 function clickChatSendButton(){

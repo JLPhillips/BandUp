@@ -1,0 +1,181 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@1.3.11
+3 info using node@v0.10.20
+4 verbose readDependencies using package.json deps
+5 verbose install where, deps [ '/home/jl/Code/Personal/BandUp',
+5 verbose install   [ 'angular',
+5 verbose install     'google-calendar',
+5 verbose install     'express',
+5 verbose install     'jade',
+5 verbose install     'express-less',
+5 verbose install     'lodash',
+5 verbose install     'moment',
+5 verbose install     'mongoose',
+5 verbose install     'async',
+5 verbose install     'colors',
+5 verbose install     'request',
+5 verbose install     'socket.io',
+5 verbose install     'connect-redis',
+5 verbose install     'require-dir',
+5 verbose install     'bcrypt',
+5 verbose install     'twilio',
+5 verbose install     'jqueryui',
+5 verbose install     'grunt',
+5 verbose install     'grunt-contrib-watch',
+5 verbose install     'grunt-contrib-jshint',
+5 verbose install     'grunt-notify',
+5 verbose install     'home-dir' ] ]
+6 info preinstall application-name@0.0.1
+7 verbose readDependencies using package.json deps
+8 verbose already installed skipping jade@* /home/jl/Code/Personal/BandUp
+9 verbose cache add [ 'angular@*', null ]
+10 verbose cache add name=undefined spec="angular@*" args=["angular@*",null]
+11 verbose parsed url { protocol: null,
+11 verbose parsed url   slashes: null,
+11 verbose parsed url   auth: null,
+11 verbose parsed url   host: null,
+11 verbose parsed url   port: null,
+11 verbose parsed url   hostname: null,
+11 verbose parsed url   hash: null,
+11 verbose parsed url   search: null,
+11 verbose parsed url   query: null,
+11 verbose parsed url   pathname: 'angular@*',
+11 verbose parsed url   path: 'angular@*',
+11 verbose parsed url   href: 'angular@*' }
+12 verbose cache add name="angular" spec="*" args=["angular","*"]
+13 verbose parsed url { protocol: null,
+13 verbose parsed url   slashes: null,
+13 verbose parsed url   auth: null,
+13 verbose parsed url   host: null,
+13 verbose parsed url   port: null,
+13 verbose parsed url   hostname: null,
+13 verbose parsed url   hash: null,
+13 verbose parsed url   search: null,
+13 verbose parsed url   query: null,
+13 verbose parsed url   pathname: '*',
+13 verbose parsed url   path: '*',
+13 verbose parsed url   href: '*' }
+14 verbose addNamed [ 'angular', '*' ]
+15 verbose addNamed [ null, '*' ]
+16 verbose cache add [ 'google-calendar@*', null ]
+17 verbose cache add name=undefined spec="google-calendar@*" args=["google-calendar@*",null]
+18 verbose parsed url { protocol: null,
+18 verbose parsed url   slashes: null,
+18 verbose parsed url   auth: null,
+18 verbose parsed url   host: null,
+18 verbose parsed url   port: null,
+18 verbose parsed url   hostname: null,
+18 verbose parsed url   hash: null,
+18 verbose parsed url   search: null,
+18 verbose parsed url   query: null,
+18 verbose parsed url   pathname: 'google-calendar@*',
+18 verbose parsed url   path: 'google-calendar@*',
+18 verbose parsed url   href: 'google-calendar@*' }
+19 verbose cache add name="google-calendar" spec="*" args=["google-calendar","*"]
+20 verbose parsed url { protocol: null,
+20 verbose parsed url   slashes: null,
+20 verbose parsed url   auth: null,
+20 verbose parsed url   host: null,
+20 verbose parsed url   port: null,
+20 verbose parsed url   hostname: null,
+20 verbose parsed url   hash: null,
+20 verbose parsed url   search: null,
+20 verbose parsed url   query: null,
+20 verbose parsed url   pathname: '*',
+20 verbose parsed url   path: '*',
+20 verbose parsed url   href: '*' }
+21 verbose addNamed [ 'google-calendar', '*' ]
+22 verbose addNamed [ null, '*' ]
+23 verbose already installed skipping express-less@* /home/jl/Code/Personal/BandUp
+24 verbose already installed skipping express@* /home/jl/Code/Personal/BandUp
+25 verbose already installed skipping lodash@* /home/jl/Code/Personal/BandUp
+26 verbose already installed skipping moment@* /home/jl/Code/Personal/BandUp
+27 silly lockFile 1aae890e-angular angular@*
+28 verbose lock angular@* /home/jl/.npm/1aae890e-angular.lock
+29 silly lockFile b1529505-google-calendar google-calendar@*
+30 verbose lock google-calendar@* /home/jl/.npm/b1529505-google-calendar.lock
+31 verbose already installed skipping mongoose@* /home/jl/Code/Personal/BandUp
+32 verbose already installed skipping async@* /home/jl/Code/Personal/BandUp
+33 verbose already installed skipping colors@* /home/jl/Code/Personal/BandUp
+34 verbose already installed skipping request@* /home/jl/Code/Personal/BandUp
+35 verbose already installed skipping socket.io@* /home/jl/Code/Personal/BandUp
+36 verbose already installed skipping connect-redis@* /home/jl/Code/Personal/BandUp
+37 verbose already installed skipping require-dir@* /home/jl/Code/Personal/BandUp
+38 verbose already installed skipping bcrypt@* /home/jl/Code/Personal/BandUp
+39 verbose already installed skipping twilio@* /home/jl/Code/Personal/BandUp
+40 verbose cache add [ 'jqueryui@*', null ]
+41 verbose cache add name=undefined spec="jqueryui@*" args=["jqueryui@*",null]
+42 verbose parsed url { protocol: null,
+42 verbose parsed url   slashes: null,
+42 verbose parsed url   auth: null,
+42 verbose parsed url   host: null,
+42 verbose parsed url   port: null,
+42 verbose parsed url   hostname: null,
+42 verbose parsed url   hash: null,
+42 verbose parsed url   search: null,
+42 verbose parsed url   query: null,
+42 verbose parsed url   pathname: 'jqueryui@*',
+42 verbose parsed url   path: 'jqueryui@*',
+42 verbose parsed url   href: 'jqueryui@*' }
+43 verbose cache add name="jqueryui" spec="*" args=["jqueryui","*"]
+44 verbose parsed url { protocol: null,
+44 verbose parsed url   slashes: null,
+44 verbose parsed url   auth: null,
+44 verbose parsed url   host: null,
+44 verbose parsed url   port: null,
+44 verbose parsed url   hostname: null,
+44 verbose parsed url   hash: null,
+44 verbose parsed url   search: null,
+44 verbose parsed url   query: null,
+44 verbose parsed url   pathname: '*',
+44 verbose parsed url   path: '*',
+44 verbose parsed url   href: '*' }
+45 verbose addNamed [ 'jqueryui', '*' ]
+46 verbose addNamed [ null, '*' ]
+47 silly lockFile a08f56dc-jqueryui jqueryui@*
+48 verbose lock jqueryui@* /home/jl/.npm/a08f56dc-jqueryui.lock
+49 verbose already installed skipping grunt@* /home/jl/Code/Personal/BandUp
+50 verbose already installed skipping grunt-contrib-watch@* /home/jl/Code/Personal/BandUp
+51 verbose already installed skipping grunt-contrib-jshint@* /home/jl/Code/Personal/BandUp
+52 verbose already installed skipping grunt-notify@* /home/jl/Code/Personal/BandUp
+53 verbose already installed skipping home-dir@* /home/jl/Code/Personal/BandUp
+54 silly addNameRange { name: 'google-calendar', range: '*', hasData: false }
+55 silly addNameRange { name: 'angular', range: '*', hasData: false }
+56 verbose url raw google-calendar
+57 verbose url resolving [ 'https://registry.npmjs.org/', './google-calendar' ]
+58 verbose url resolved https://registry.npmjs.org/google-calendar
+59 info trying registry request attempt 1 at 15:48:50
+60 http GET https://registry.npmjs.org/google-calendar
+61 verbose url raw angular
+62 verbose url resolving [ 'https://registry.npmjs.org/', './angular' ]
+63 verbose url resolved https://registry.npmjs.org/angular
+64 info trying registry request attempt 1 at 15:48:50
+65 http GET https://registry.npmjs.org/angular
+66 silly addNameRange { name: 'jqueryui', range: '*', hasData: false }
+67 verbose url raw jqueryui
+68 verbose url resolving [ 'https://registry.npmjs.org/', './jqueryui' ]
+69 verbose url resolved https://registry.npmjs.org/jqueryui
+70 info trying registry request attempt 1 at 15:48:50
+71 http GET https://registry.npmjs.org/jqueryui
+72 http 404 https://registry.npmjs.org/jqueryui
+73 silly registry.get cb [ 404,
+73 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R15B03)',
+73 silly registry.get     date: 'Thu, 21 Nov 2013 21:48:51 GMT',
+73 silly registry.get     'content-type': 'application/json',
+73 silly registry.get     'content-length': '52',
+73 silly registry.get     'cache-control': 'must-revalidate' } ]
+74 silly lockFile a08f56dc-jqueryui jqueryui@*
+75 silly lockFile a08f56dc-jqueryui jqueryui@*
+76 error 404 'jqueryui' is not in the npm registry.
+76 error 404 You should bug the author to publish it
+76 error 404
+76 error 404 Note that you can also install from a
+76 error 404 tarball, folder, or http url, or git url.
+77 error System Linux 3.8.0-30-generic
+78 error command "/usr/local/bin/node" "/usr/local/bin/npm" "install"
+79 error cwd /home/jl/Code/Personal/BandUp
+80 error node -v v0.10.20
+81 error npm -v 1.3.11
+82 error code E404
+83 verbose exit [ 1, true ]
