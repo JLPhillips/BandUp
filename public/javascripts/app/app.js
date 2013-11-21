@@ -6,19 +6,35 @@ var socket;
 
 function initialize(){
   $(document).foundation();
-  $('body').hide().fadeIn(4000);
-  $("#chatbox").hide();
-  $('#chatbutton').on("click", clickChatButton);
-  $('#chatsendbutton').on("click", clickChatSendButton);
-  $('#chatbox').draggable({revert: false, containment: "parent", scroll: false});
+  onLoads();
+  clickHandlers();
   initializeSocketIO();
 }
+
+// -----------------------------------------------[On-Load Functions]----------------->
+
+function onLoads(){
+  $('body').hide().fadeIn(4000);
+  $("#chatbox").hide();
+  $('#chatbox').draggable({revert: false, containment: "parent", scroll: false});
+}
+
+// -----------------------------------------------[Click Handlers]----------------->
+
+function clickHandlers(){
+  $('#chatbutton').on("click", clickChatButton);
+  $('#chatsendbutton').on("click", clickChatSendButton);
+  $("#chatinput").keyup(function(e) {if(e.keyCode == 13) {clickChatSendButton();}});
+}
+
+// -----------------------------------------------[Click Functions]----------------->
 
 function clickChatButton(){
   $("#chatbox").toggleClass("hidden");
   if(!$("#chatbox").hasClass("hidden")){
     $("#chatbox").hide().fadeIn(500);
     $("#chatbutton").css("background-color", "#21798a");
+    $("#chatinput").focus();
   }else{
     $("#chatbox").show().fadeOut(500);
     $("#chatbutton").css("background-color", "black");
@@ -36,10 +52,22 @@ function clickChatSendButton(){
     $message.text(firstname + ": " + comment);
     $("#chatwindow").append($message);
   }
-  // $("#chatwindow").text("Jack: " + comment);
 
   $("#chatinput").val("");
   $("#chatinput").focus();
+}
+
+function chatSendButtonGuts(){
+  if($("#chatinput").val() == ""){
+    alert("Enter text you must, or chat you will not!");
+  }else{
+    var comment = $("#chatinput").val();
+    var firstname = "Heisenburg";
+    var $message = $("<div>");
+    $message.addClass("message");
+    $message.text(firstname + ": " + comment);
+    $("#chatwindow").append($message);
+  }
 }
 
 function initializeSocketIO(){
