@@ -5,6 +5,10 @@
 @bandupWhite: #e6e6e6;
 @flatShadow: 0px 3px 0px rgba(0, 0, 0, 0.2);
 
+#content {
+  position: relative;
+  top: 150px;
+}
 
 @-webkit-keyframes spinCycle
 {
@@ -32,6 +36,29 @@
   z-index: 200;
 }
 
+#chatbar {
+  background-color: black;
+  width: 100%;
+  height: 45px;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  margin-bottom: 0px;
+  z-index: 200;
+}
+
+// .bottom-bar {
+//   position: fixed;
+//   bottom: 0px;
+//   width: 100%;
+//   margin-bottom: 0px;
+//   z-index: 200;
+// }
+
+.hidden {
+  display: none;
+}
+
 .loginbutton {
   height: 30px;
   width: 125px;
@@ -49,14 +76,91 @@
   top: -143px;
 }
 
+.chatbutton {
+  height: 30px;
+  width: 60px;
+  font-size: 15px;
+  color: white;
+  border: 1px solid @bandupBlue;
+  background-color: transparent;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  padding: 5px;
+  float: right;
+  position: relative;
+  right: 40px;
+  top: 8px;
+}
+
+#chatsendbutton {
+  height: 30px;
+  width: 60px;
+  font-size: 15px;
+  color: white;
+  border: 1px solid @bandupBlue;
+  background-color: transparent;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  padding: 5px;
+  float: right;
+  // position: relative;
+  // right: 40px;
+  // top: 8px;
+}
+
+#chatbox {
+  height: 500px;
+  width: 300px;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  right: 5px;
+  bottom: 50px;
+  z-index: 200;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 15px black;
+  -moz-box-shadow: 0 0 15px black;
+  box-shadow: 0 0 15px black;
+}
+
+#chatwindow {
+  height: 420px;
+  width: 270px;
+  margin: auto;
+  border: 1px solid @bandupBlue;
+  position: relative;
+  top: 15px;
+  word-wrap: break-word;
+  padding: 10px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.message {
+  color: white;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+#inputrow {
+  position: fixed;
+  bottom: 50px;
+  width: 300px;
+}
+
 ul.right {
   background-color: black;
 }
 
-#landing {
+#dashboard {
   background-color: @bandupGreen;
   height: 100%;
   width: 100%;
+  margin: auto;
 }
 
 #textbox {
@@ -64,14 +168,59 @@ ul.right {
   margin: auto;
 }
 
-#landingh1 {
+#textbox2 {
+  width: 250px;
+  margin: auto;
+  position: relative;
+  top: -13px;
+}
+
+#dashboardh11 {
+  color: black;
+  position: relative;
+  top: -13px;
+  font-size: 40px;
+  margin: auto;
+  width: 262px;
+}
+
+#dashboardh12 {
   color: black;
   position: relative;
   top: -20px;
   font-size: 40px;
 }
 
+#dashboardh13 {
+  color: black;
+  position: relative;
+  top: -13px;
+  font-size: 40px;
+}
+
 .checkItOut{
+  font-weight: bold;
+  text-shadow:@flatShadow;
+  width: 200px;
+  padding-top: 30px;
+  height: 80px;
+  background-color: @bandupGreen;
+  color:white;
+  position: relative;
+  margin: auto;
+  text-align: center;
+  letter-spacing: 5px;
+  border-radius: 30px;
+  box-shadow: @flatShadow;
+  top: 50px;
+  &:hover{
+    background-color: lighten(@bandupGreen, 10%);
+    cursor: pointer;
+
+  }
+}
+
+.checkItOut2{
   font-weight: bold;
   text-shadow:@flatShadow;
   width: 200px;
@@ -119,7 +268,7 @@ ul.right {
 #left, #middle, #right {
   height: 580px;
   width: 303px;
-  margin: 80px 10px;
+  margin: 150px 10px;
   background-color: rgba(230, 230, 230, 1);
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -128,7 +277,6 @@ ul.right {
   -moz-box-shadow: 5px 5px 15px black;
   box-shadow: 5px 5px 15px black;
   float: left;
-  position: relative;
   // top: 50px;
 }
 

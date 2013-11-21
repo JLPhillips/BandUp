@@ -5,18 +5,29 @@
       .whiteDots
   a(href='#').button.loginbutton Sign Up | Log In
 
+#chatbar
+  button#chatbutton.button.chatbutton Chat
+#chatbox.hidden
+  #chatwindow
+  .row#inputrow
+    .small-9.columns
+      input#chatinput.expand(type="text", autofocus=true)
+    .small-3.columns
+      button.button#chatsendbutton Send
+
 //- .contain-to-grid.sticky
 //-   nav.top-bar
 //-     ul.title-area
-//-       li.name
-//-         h1:a(href='/') BAND UP
+//-       //- li.name
+//-       //-   h1:a(href='/') BAND UP
 //-     section.top-bar-section
-//-       .circle
-//-         a#logo(href='/')
-//-           .navLogo
-//-           .whiteDots
+//-       //- .circle
+//-       //-   a#logo(href='/')
+//-       //-     .navLogo
+//-       //-     .whiteDots
 //-         //- img(src="../images/miniLogoWhite.png").navLogo
 //-         //- img(src="../images/whiteDots.png").whiteDots
-//-       ul.right
-//-         //- li.divider
-//-         li.active: a(href='#').button.radius.reveal-link Sign Up | Log In
+//-     ul.right
+//-       li.divider
+//-       li.active: a(href="#").button Chat
+//-       //- li.active: a(href='#').button.radius.reveal-link Sign Up | Log In

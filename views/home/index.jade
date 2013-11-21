@@ -12,28 +12,27 @@ block content
       img(src='../images/buAlt.png').sublogo
       p(class='subBlurb').
         Real-time calendar that automatically syncs times up and tells you best times for practices and shows ( eventually pulls data from Google and iPhone-Android calendars ) and will give you notifications straight to your browser or phone via text!
-  .full-width
-    #landing
-        .row
-          .small-12.columns
-            #left
-              #calendar
-              h1#landingh1 Calendar Sync
-              #textbox
-                p Here is some text, yo.
-              p.checkItOut Check it out!
-            #middle
-              #phone
-              h1#landingh1 Auto-Text
-              #textbox
-                p Here is some text, yo.
-              p.checkItOut Check it out!
-            #right
-              #gps
-              h1#landingh1 GPS Sync
-              #textbox
-                p Here is some text, yo.
-              p.checkItOut Check it out!
+  #landing.full-width
+      .row
+        .small-12.columns
+          #left
+            #calendar
+            h1#landingh11 Calendar Sync
+            #textbox
+              p Here is some text, yo.
+            p.checkItOut Check it out!
+          #middle
+            #phone
+            h1#landingh12 Auto-Text
+            #textbox2
+              p Here is some text, yo.
+            p.checkItOut2 Check it out!
+          #right
+            #gps
+            h1#landingh13 GPS Sync
+            #textbox
+              p Here is some text, yo.
+            p.checkItOut Check it out!
   .full-width
     .small-12.columns.full-width.section2
       fieldset
@@ -46,12 +45,12 @@ block content
           label(for='message')
           textarea(name='message')
           input(type='submit').submit Send
-  #myModal.reveal-modal
+  #myModal.reveal-modal(style="z-index: 300;")
     h3 Sign Up Today
     form#signUpForm(action='post' method='#')
       label(for='email') Email:
-      input(type='text' name='email') 
+      input(type='text' name='email')
       label(for='password')
-      input(type='password' name='password') 
+      input(type='password' name='password')
       input(type='submit').button.radius Sign Up
     a.close-reveal-modal &#215;
