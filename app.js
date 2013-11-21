@@ -6,10 +6,11 @@ require('require-dir')('./models');
 
 // route definitions
 var home = require('./routes/home');
+var users = require('./routes/users');
 
 var app = express();
 var RedisStore = require('connect-redis')(express);
-mongoose.connect('mongodb://localhost/name-of-database');
+mongoose.connect('mongodb://localhost/bandUp');
 
 // configure express
 require('./config').initialize(app, RedisStore);
@@ -18,6 +19,12 @@ require('./config').initialize(app, RedisStore);
 app.get('/', home.index);
 app.get('/landing', home.landing);
 app.get('/cal', home.cal);
+
+
+// users routes
+app.get('/users', users.index);
+app.post('/users', users.create);
+app.put('/login',users.login);
 
 // start server & socket.io
 var common = require('./sockets/common');

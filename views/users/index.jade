@@ -1,0 +1,21 @@
+extends ../template/layout
+include ../mixins/form-helper
+
+block content
+  .row
+  .row  
+    .small-12.columns
+      h1 Sign Up for Band Up
+  .row
+    .small-12.columns
+      form(action='#' method='post')#loginForm
+        .row
+          .small-12.columns
+            label(for='email') Email:
+            input(type='text',name='email')
+        .row
+          .small-12.columns
+            label(for='password') Password:
+            input(type='password',name='password')
+        .row
+          input(type='submit')#login.button.radius.success Log In

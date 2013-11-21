@@ -47,11 +47,25 @@ block content
           textarea(name='message')
           input(type='submit').submit Send
   #myModal.reveal-modal
-    h3 Sign Up Today
-    form#signUpForm(action='post' method='#')
-      label(for='email') Email:
-      input(type='text' name='email') 
-      label(for='password')
-      input(type='password' name='password') 
-      input(type='submit').button.radius Sign Up
+    .row
+    .small-12.columns
+      form(action='users/' method='post')
+        .row
+          .small-12.columns
+            label(for='name') Name:
+            input(type='text',name='name')
+        .row
+          .small-12.columns
+            label(for='email') Email:
+            input(type='text',name='email')
+        .row
+          .small-12.columns
+            label(for='password') Password:
+            input(type='password',name='password')
+        .row
+          .small-12.columns
+            label(for='phone') Phone:
+            input(type='text',name='phone')
+        .row
+          input(type='submit')#newUser.button.radius.success Sign Up
     a.close-reveal-modal &#215;
