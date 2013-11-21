@@ -79,13 +79,29 @@ function socketConnected(data){
 
 function clickLogin(e){
   alert('I was clicked');
-  var url = 'login';
+  var url = '/login';
   var data = $('#loginForm').serialize();
-
-  sendGenericAjaxRequest(url, data, 'post', 'put', e , function(data){
-    alert(data);
+  sendAjaxRequest(url, data, 'post', 'put', e , function(data){
+  getFancyWithIt(data);
   });
 }
+
+/*
+  *
+  *
+  * HTML Fancifiers
+  * 
+  *
+*/
+
+function getFancyWithIt(data){
+  if(data[0].status === 'okie-dokie'){
+    $('#login').removeClass('success').addClass('alert').text('Log Out ' + data[1].name);
+  }else{
+    alert('thats what I call failure');
+  }
+}
+
 
 
 /*

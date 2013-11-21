@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var bcrypt = require('bcrypt');
+var message = {};
 
 exports.index = function(req, res){
   res.render('users/index', {title: 'Band Up User'});
@@ -34,6 +35,19 @@ exports.create = function(req, res){
 
 exports.login = function(req,res){
 	console.log('===^==Login Process Start==^===');
-	console.log(req.body);
-	res.send({status:'okay'});
+	User.findOne({email:req.body.email}, function(err, user){
+		bcrypt.compare(req.body.password, user.password, function(err, result){
+			if(result){
+				req.session.regenerate(function(err){
+					req.session.userId = user.id; 
+					req.session.name = user.name;
+					req.session.save(function(err){
+						console.log(req.session);
+						message.status = 'okie-dokie';
+						res.send([message,user])
+					});
+				});
+			}
+		})
+	});
 };
