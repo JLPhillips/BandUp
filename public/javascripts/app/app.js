@@ -10,12 +10,8 @@ function initialize(){
   $("#chatbox").hide();
   $('#chatbutton').on("click", clickChatButton);
   $('#chatsendbutton').on("click", clickChatSendButton);
-  $('#chatbox').draggable({revert: false});
+  $('#chatbox').draggable({revert: false, containment: "parent", scroll: false});
   initializeSocketIO();
-}
-
-function dragChat(){
-  $("#chatbox").draggable();
 }
 
 function clickChatButton(){
