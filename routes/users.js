@@ -44,7 +44,7 @@ exports.login = function(req,res){
 					req.session.save(function(err){
 						console.log(req.session);
 						message.status = 'okie-dokie';
-						res.send([message,user])
+						res.send([message,user]);
 					});
 				});
 			}

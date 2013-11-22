@@ -3,6 +3,7 @@
 $(document).ready(initialize);
 
 var socket;
+var user;
 
 function initialize(){
 
@@ -59,15 +60,23 @@ function initialize(){
 function initializeSocketIO(){
   var port = window.location.port ? window.location.port : '80';
   var url = window.location.protocol + '//' + window.location.hostname + ':' + port + '/app';
+  var user = sessionStorage.user;
 
   socket = io.connect(url);
   socket.on('connected', socketConnected);
+  socket.on('1', socketHeardYou);
+  socket.emit('hello!', {user: user} );
+
 }
 
 function socketConnected(data){
   console.log(data);
 }
 
+function socketHeardYou(data){
+  console.log(data.user.name);
+  user = data.user;
+}
 
 
 /*
@@ -92,7 +101,7 @@ function clickLogOut(e){
   if(answer){ 
     var url = '/logout';
     sendAjaxRequest(url, {}, 'post','delete',e,function(data){
-      window.load('/');
+      window.location.href='/';
     });
   }else{
     e.preventDefault;
@@ -110,9 +119,9 @@ function clickLogOut(e){
 
 function getFancyWithIt(data){
   if(data[0].status === 'okie-dokie'){
-    alert('YAY');
+    sessionStorage.user = data[1].name;
   }else{
-    alert('thats what I call failure');
+    alert('that is what I call failure');
   }
 }
 

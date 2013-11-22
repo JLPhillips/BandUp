@@ -1,71 +1,72 @@
 extends ../template/layout
 
 block content
-  .full-width#landerBack
-    img(src='../images/buMainBlack.png' draggable='false').landerLogo
-    p.landerBlurb
-      | The ultimate tool <br>
-      | for band organization and management!
-    p(data-reveal-id="myModal").signUp.reveal-link START NOW
-  .row.section1
-    .small-12.columns
-      img(src='../images/buAlt.png').sublogo
-      p(class='subBlurb').
-        Real-time calendar that automatically syncs times up and tells you best times for practices and shows ( eventually pulls data from Google and iPhone-Android calendars ) and will give you notifications straight to your browser or phone via text!
-  .full-width
-    #landing
-        .row
-          .small-12.columns
-            #left
-              #calendar
-              h1#landingh1 Calendar Sync
-              #textbox
-                p Here is some text, yo.
-              p.checkItOut Check it out!
-            #middle
-              #phone
-              h1#landingh1 Auto-Text
-              #textbox
-                p Here is some text, yo.
-              p.checkItOut Check it out!
-            #right
-              #gps
-              h1#landingh1 GPS Sync
-              #textbox
-                p Here is some text, yo.
-              p.checkItOut Check it out!
-  .full-width
-    .small-12.columns.full-width.section2
-      fieldset
-        h4 Contact Us
-        form#contactUs(action='post' method='#')
-          label(for='email') Email:
-          input(type='text' name='email')
-          label(for='name') Name:
-          input(type='text' name='name')
-          label(for='message')
-          textarea(name='message')
-          input(type='submit').submit Send
-  #myModal.reveal-modal
-    .row
-    .small-12.columns
-      form(action='users/' method='post')
-        .row
-          .small-12.columns
-            label(for='name') Name:
-            input(type='text',name='name')
-        .row
-          .small-12.columns
+  if user
+    .full-width#landerBack
+      img(src='../images/buMainBlack.png' draggable='false').landerLogo
+      p.landerBlurb
+        | The ultimate tool <br>
+        | for band organization and management!
+      p(data-reveal-id="myModal").signUp.reveal-link= user.name
+    .row.section1
+      .small-12.columns
+        img(src='../images/buAlt.png').sublogo
+        p(class='subBlurb').
+          Real-time calendar that automatically syncs times up and tells you best times for practices and shows ( eventually pulls data from Google and iPhone-Android calendars ) and will give you notifications straight to your browser or phone via text!
+    .full-width
+      #landing
+          .row
+            .small-12.columns
+              #left
+                #calendar
+                h1#landingh1 Calendar Sync
+                #textbox
+                  p Here is some text, yo.
+                p.checkItOut Check it out!
+              #middle
+                #phone
+                h1#landingh1 Auto-Text
+                #textbox
+                  p Here is some text, yo.
+                p.checkItOut Check it out!
+              #right
+                #gps
+                h1#landingh1 GPS Sync
+                #textbox
+                  p Here is some text, yo.
+                p.checkItOut Check it out!
+    .full-width
+      .small-12.columns.full-width.section2
+        fieldset
+          h4 Contact Us
+          form#contactUs(action='post' method='#')
             label(for='email') Email:
-            input(type='text',name='email')
-        .row
-          .small-12.columns
-            label(for='password') Password:
-            input(type='password',name='password')
-        .row
-          .small-12.columns
-            label(for='phone') Phone:
-            input(type='text',name='phone')
-        .row
-          input(type='submit')#newUser.button.radius.success Sign Up
-    a.close-reveal-modal &#215;
+            input(type='text' name='email')
+            label(for='name') Name:
+            input(type='text' name='name')
+            label(for='message')
+            textarea(name='message')
+            input(type='submit').submit Send
+    #myModal.reveal-modal
+      .row
+      .small-12.columns
+        form(action='users/' method='post')
+          .row
+            .small-12.columns
+              label(for='name') Name:
+              input(type='text',name='name')
+          .row
+            .small-12.columns
+              label(for='email') Email:
+              input(type='text',name='email')
+          .row
+            .small-12.columns
+              label(for='password') Password:
+              input(type='password',name='password')
+          .row
+            .small-12.columns
+              label(for='phone') Phone:
+              input(type='text',name='phone')
+          .row
+            input(type='submit')#newUser.button.radius.success Sign Up
+      a.close-reveal-modal &#215;
