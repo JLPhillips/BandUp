@@ -4,6 +4,9 @@ var mongoose = require('mongoose');
 // model definitions
 require('require-dir')('./models');
 
+//define middleware
+var middleware = require('./lib/middleware');
+
 // route definitions
 var home = require('./routes/home');
 var users = require('./routes/users');
@@ -25,6 +28,7 @@ app.get('/cal', home.cal);
 app.get('/users', users.index);
 app.post('/users', users.create);
 app.put('/login',users.login);
+app.delete('/logout', users.logout);
 
 // start server & socket.io
 var common = require('./sockets/common');

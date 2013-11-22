@@ -3,7 +3,10 @@
     a#logo(href='/')
       .navLogo
       .whiteDots
-  a(href='/users').button.loginbutton Log In
+  if user
+    a(href='#').button.loginbutton.alert.logout Log Out 
+  else
+    a(href='/users').button.loginbutton Log In
 
 //- .contain-to-grid.sticky
 //-   nav.top-bar

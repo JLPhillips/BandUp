@@ -7,6 +7,7 @@ var socket;
 function initialize(){
 
   $('#login').on('click', clickLogin);
+  $('.logout').on('click', clickLogOut);
 
 
 /*
@@ -86,6 +87,19 @@ function clickLogin(e){
   });
 }
 
+function clickLogOut(e){
+  var answer = confirm('You are about to LogOut');
+  if(answer){ 
+    var url = '/logout';
+    sendAjaxRequest(url, {}, 'post','delete',e,function(data){
+      window.load('/');
+    });
+  }else{
+    e.preventDefault;
+    window.location.href='/';
+  }
+}
+
 /*
   *
   *
@@ -96,7 +110,7 @@ function clickLogin(e){
 
 function getFancyWithIt(data){
   if(data[0].status === 'okie-dokie'){
-    $('#login').removeClass('success').addClass('alert').text('Log Out ' + data[1].name);
+    alert('YAY');
   }else{
     alert('thats what I call failure');
   }

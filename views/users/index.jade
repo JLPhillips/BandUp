@@ -18,4 +18,8 @@ block content
             label(for='password') Password:
             input(type='password',name='password')
   .row
-   button#login.button.radius.success Log In
+    if user 
+      button(value='Logout #{user.name}').logout.button.radius.alert= "Logout " + user.name
+
+    else
+      button#login.button.radius.sucess Log In

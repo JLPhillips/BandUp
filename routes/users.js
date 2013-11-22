@@ -4,7 +4,7 @@ var bcrypt = require('bcrypt');
 var message = {};
 
 exports.index = function(req, res){
-  res.render('users/index', {title: 'Band Up User'});
+  res.render('users/index', {title: 'Band Up User', user: res.locals.user});
 };
 
 exports.create = function(req, res){
@@ -51,3 +51,9 @@ exports.login = function(req,res){
 		})
 	});
 };
+
+exports.logout= function(req,res){
+	req.session.destroy(function(err){
+		res.send({status:'ok'});
+	});
+}
