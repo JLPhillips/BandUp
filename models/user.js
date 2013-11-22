@@ -6,6 +6,7 @@ var User = mongoose.Schema({
   // band: [{type:mongoose.Schema.Types.ObjectID, ref: "Band"}],
   music: [],
   image: String,
+  messages: [{type:String}],
   createdAt: {type: Date, default: Date.now}
 });
 

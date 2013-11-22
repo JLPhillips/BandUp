@@ -1,6 +1,19 @@
+var mongoose = require('mongoose');
+var User = mongoose.model('User');
+
+
 exports.connection = function(socket){
   socket.emit('connected', {status: 'connected'});
   socket.on('disconnect', socketDisconnect);
+
+  socket.on('send', function (data){
+  	console.log(data.message, data.username);
+  	var message = data.message;
+  	var username = data.username;
+  	socket.emit('gotMessage', {message:message, username:username});
+  });
+
+
   socket.on('message', function (data) {
     if(data.message) {
         messages.push(data);
@@ -15,8 +28,8 @@ exports.connection = function(socket){
         console.log("There is a problem:", data);
     }
 });
+
 };
 
 function socketDisconnect(){
 }
-
