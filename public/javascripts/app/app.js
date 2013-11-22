@@ -26,15 +26,31 @@ function initialize(){
 	var y = date.getFullYear();
   $(document).foundation();
   $('body').hide().fadeIn(4000); 
-  $('#cal').fullCalendar({
+  var calendar = $('#cal').fullCalendar({
   	header: {
   		left:'prev,next today',
   		center: 'title',
   		right: 'month, agendaWeek, agendaDay'
   	},
-  	dayClick: function(){
-  		alert('Click events work');
-  	},
+    selectable: true,
+    selectHelper: true,
+    select:function(start, end, allDay){
+      var title = prompt('What is the name of your event?');
+      var color = prompt('What color would you like?');
+      if(title){
+        calendar.fullCalendar('renderEvent',{
+          title:title,
+          start:start,
+          end:end,
+          color:color,
+          allDay:allDay
+
+        },
+        true
+        );
+      }
+        calendar.fullCalendar('unselect');
+    },
   	editable: true,
   	events: [
   	{
