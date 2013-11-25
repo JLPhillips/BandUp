@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 
-var Doc = mongoose.Schema({
+var Lyric = mongoose.Schema({
   title: String,
   author: String,
   date: String,
@@ -10,4 +10,4 @@ var Doc = mongoose.Schema({
   createdAt: {type: Date, default: Date.now}
 });
 
-mongoose.model("Doc", Doc);
+mongoose.model("Lyric", Lyric);

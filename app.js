@@ -6,6 +6,7 @@ require('require-dir')('./models');
 
 // route definitions
 var home = require('./routes/home');
+var lyrics = require('./routes/lyrics');
 
 var app = express();
 var RedisStore = require('connect-redis')(express);
@@ -17,7 +18,14 @@ require('./config').initialize(app, RedisStore);
 // routes
 app.get('/', home.index);
 app.get('/dashboard', home.dashboard);
-app.get('/chat', home.chat);
+app.get('/lyrics', lyrics.index);
+app.get('/lyrics/new', lyrics.new);
+app.post('/lyrics', lyrics.create);
+app.get('/lyrics/:id/edit', lyrics.edit);
+app.put('/lyrics/:id', lyrics.update);
+app.get('/lyrics/:id', lyrics.show);
+app.delete('/lyrics/:id', lyrics.delete);
+
 
 // start server & socket.io
 var common = require('./sockets/common');

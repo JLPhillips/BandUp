@@ -1,0 +1,23 @@
+extends ../template/layout
+include ../mixins/form-helper
+
+block content
+  #newlyriccontainer
+    .row
+      .small-12.columns
+        form(action='/lyrics', method='post')
+          .row
+            mixin field(4, 'text', 'title', '', "Title", null, true)
+            mixin field(4, 'text', 'author', '', "Author", null, false)
+            mixin field(4, 'text', 'date', '', "Date", date)
+          .row
+            mixin field(6, 'text', 'tags', '', "Tags")
+            mixin field(6, 'text', 'image', '', "Image")
+          .row
+            .small-12.columns
+              textarea(name="content", placeholder="Enter Lyrics Here")
+          .row
+            .small-2.columns.small-offset-8: a.button.radius.alert.small.expand(href='/lyrics') Cancel
+            .small-2.columns: button.radius.success.small.expand(type='submit') Create
+
+            //- colSize, type, name, text, value, placeholder, autofocus

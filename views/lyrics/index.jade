@@ -1,0 +1,28 @@
+extends ../template/layout
+
+block content
+  .row
+    .small-12.columns
+      #lyrics
+        each lyric in lyrics
+          .post
+            table
+              thead
+                tr
+                  th Title
+                  th Author
+                  th Date
+                  th Tags
+                  th Delete
+              tbody
+                tr
+                  td: a.button.tiny.radius.expand(href='/lyrics/#{lyric.id}')= lyric.title
+                  td= post.author
+                  td= post.date
+                  td= post.tags
+                  td
+                    form(action='/lyrics/#{lyric.id}', method='post')
+                      input(type='hidden', name='_method', value='delete')
+                      button.tiny.radius.alert(type='submit') Delete
+            img(src=lyric.image)
+            p.content= lyric.content
