@@ -10,7 +10,16 @@ function initialize(){
   clickHandlers();
   // loadChat();
   initializeSocketIO();
+  $('#chatwindow').on('change',newChatMessage);
 }
+
+
+// -----------------------------------------------[Socker ON]----------------->
+
+
+
+
+
 
 // -----------------------------------------------[On-Load Functions]----------------->
 
@@ -43,36 +52,53 @@ function clickChatButton(){
 }
 
 
-function clickChatSendButton(){
-  if($("#chatinput").val() == ""){
-    alert("Enter text you must, or chat you will not!");
-  }else{
-    var comment = $("#chatinput").val();
-    var firstname = "Heisenburg";
-    var $message = $("<div>");
-    $message.addClass("message");
-    $message.text(firstname + ": " + comment);
-    $("#chatwindow").append($message);
-  }
-  $("#chatinput").val("");
-  $("#chatinput").focus();
-}
-
 // function clickChatSendButton(){
-//   var socket = io.connect('http://localhost:3700');
-//   var comment = $("#chatfield").val();
-//   var name = Jack;
-//   var messages = [];
-
 //   if($("#chatinput").val() == ""){
 //     alert("Enter text you must, or chat you will not!");
 //   }else{
-//     socket.emit('send', {message: comment, username: name.value});
+//     var comment = $("#chatinput").val();
+//     var firstname = "Heisenburg";
+//     var $message = $("<div>");
+//     $message.addClass("message");
+//     $message.text(firstname + ": " + comment);
+//     $("#chatwindow").append($message);
 //   }
-
 //   $("#chatinput").val("");
 //   $("#chatinput").focus();
 // }
+
+// function clickChatSendButton(){
+//   if($("#chatinput").val() == ""){
+//     alert("Enter text you must, or chat you will not!");
+//   }else{
+//     var comment = $("#chatinput").val();
+//     var firstname = "Heisenburg";
+//     var $message = $("<div>");
+//     $message.addClass("message");
+//     $message.text(firstname + ": " + comment);
+//     $("#chatwindow").append($message);
+//   }
+//   $("#chatinput").val("");
+//   $("#chatinput").focus();
+// }
+
+function clickChatSendButton(){
+  var port = window.location.port ? window.location.port : '80';
+  var url = window.location.protocol + '//' + window.location.hostname + ':' + port + '/app';
+  var socket = io.connect(url);
+  var comment = $("#chatinput").val();
+  var name = 'Jack';
+  var messages = [];
+
+  if($("#chatinput").val() == ""){
+    alert("Enter text you must, or chat you will not!");
+  }else{
+    socket.emit('send', {message: comment, username: name});
+  }
+
+  $("#chatinput").val("");
+  $("#chatinput").focus();
+}
 
 // -----------------------------------------------[Load Chat]----------------->
 
@@ -117,8 +143,29 @@ function initializeSocketIO(){
 
   socket = io.connect(url);
   socket.on('connected', socketConnected);
+  socket.on('gotMessage', socketMessageRecieved);
 }
 
 function socketConnected(data){
   console.log(data);
+}
+
+function socketMessageRecieved(data){
+  htmlAddPost(data);
+}
+
+
+// -----------------------------------------------[HTML MODS]----------------->
+
+function htmlAddPost(data){
+    var p = $('<p>');
+    p.append(data.username +": "+ data.message);
+    p.addClass('message');
+    $('#chatwindow').append(p);
+
+}
+
+
+function newChatMessage(){
+  $('#chatwindow').css('background-color','red');
 }
