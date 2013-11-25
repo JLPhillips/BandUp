@@ -10,7 +10,7 @@ exports.connection = function(socket){
   	console.log(data.message, data.username);
   	var message = data.message;
   	var username = data.username;
-  	socket.emit('gotMessage', {message:message, username:username});
+  	socket.emit('gotMessage', {username:username, message:message});
   });
 
 
