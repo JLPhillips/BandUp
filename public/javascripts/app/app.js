@@ -42,6 +42,7 @@ function clickChatButton(){
   }
 }
 
+
 function clickChatSendButton(){
   if($("#chatinput").val() == ""){
     alert("Enter text you must, or chat you will not!");
