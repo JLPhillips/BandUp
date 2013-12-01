@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
+var Band = mongoose.model('Band');
 var bcrypt = require('bcrypt');
 
 exports.signUp = function(req,res){
@@ -60,7 +61,9 @@ exports.signIn = function(req,res){
 
 exports.dashboard = function(req,res){
 	User.findById(res.locals.user,function(err,user){
-		res.render('users/dashboard',{title:'Welcome ' + user.name, user:user});
+		Band.find(function(err,bands){
+			res.render('users/dashboard',{title:'Welcome ' + user.name, user:user, bands:bands});
+		});
 	});
 }
 

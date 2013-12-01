@@ -197,6 +197,11 @@ body{
 	z-index: 0;
 }
 
+#smile{
+	display: inline;
+	margin-left:  15px;
+}
+
 #makeBand{
 	color: white;
 	font-weight: bold;
@@ -210,4 +215,35 @@ body{
 #makeBandAlert{
 	margin-right: 5px;
 	color:#EF4242;
+}
+
+.bandBox{
+	background-color: #3DDF75;
+	float: left;
+	margin-right: 20px;
+	width: 200px;
+	height: 150px;
+	border: 2px solid black;
+
+	h5{
+		position: relative;
+		color:white;
+		background-color: black;
+		top:45px;
+		width:100px;
+	}
+
+	.joinBand{
+		position: relative;
+		top:58px;
+		background-color: black;
+
+		.joinIcon{
+			margin-right: 15px;
+			transition:all 100ms ease-in-out;
+			&:hover{
+				color: #3DDF75;
+			}
+		}
+	}
 }

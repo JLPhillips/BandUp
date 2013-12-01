@@ -3,6 +3,7 @@ extends ../template/layout
 block content
   #profileHeader
     h1#dashHeader Hello #{user.name}
+      i.fa.fa-smile-o#smile
     img(src="#{user.image}")#profileImage
   .row
     .small-12.columns
@@ -14,6 +15,20 @@ block content
       if !user.band
         i.fa.fa-exclamation-triangle#makeBandAlert
         | You need to make a band!
+
+        if bands.length
+          .row
+            .small-12.columns
+              h4 Are you a member of any of these bands?
+          .row
+            .small-12.columns
+              #bandsContainer
+                for band in bands
+                  .bandBox(data-id="#{band.id}" background="#{band.image}")
+                    h5=band.name
+                    button.expand.joinBand 
+                      i.fa.fa-plus-square-o.joinIcon 
+                        | Join Band
         .row
           .small-12.columns
             form#makeBandForm(action="/makeBand",method="post")
