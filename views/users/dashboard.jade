@@ -1,0 +1,37 @@
+extends ../template/layout
+
+block content
+  #profileHeader
+    h1#dashHeader Hello #{user.name}
+    img(src="#{user.image}")#profileImage
+  .row
+    .small-12.columns
+      a(href="/messages") 
+        i.fa.fa-envelope#message-icon
+        | Check and Send Messages
+  .row
+    .small-12.columns
+      if !user.band
+        i.fa.fa-exclamation-triangle#makeBandAlert
+        | You need to make a band!
+        .row
+          .small-12.columns
+            form#makeBandForm(action="/makeBand",method="post")
+              fieldset
+                legend Make A Band! 
+                .row
+                  .small-12.columns
+                    label(for='name') Band Name
+                    input(type='text',name='name')
+                .row
+                  .small-12.columns
+                    label(for='image') Band Image
+                    input(type='text',name='image')
+                .row
+                  .small-12.columns
+                    button(type='submit')#makeBand Submit
+      else
+        .row
+          .small-12.columns
+              h2 #{user.name}, see what your band has been up to!
+              a(href='bands/#{user.band}').button.expand View Band Page

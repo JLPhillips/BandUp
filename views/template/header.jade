@@ -1,0 +1,17 @@
+.contain-to-grid.sticky
+  nav.top-bar#myNav
+    ul.title-area
+      li.name
+        a(href='/')
+          h6#nav-logo BAND UP
+      li.toggle-topbar.menu-icon
+        a(href='/')
+          span Nav
+    section.top-bar-section
+      ul.left
+      ul.right
+        li.divider
+        if user
+          li: a.button.radius.success(href='/logout') Logout 
+        else
+          li: a.button.radius(href='/login') Login 

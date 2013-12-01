@@ -6,16 +6,52 @@ require('require-dir')('./models');
 
 // route definitions
 var home = require('./routes/home');
+var users = require('./routes/users');
+var bands = require('./routes/bands');
+var events = require('./routes/events');
+var messages = require('./routes/messages');
+
+//middleware
+var middleware = require('./lib/middleware');
 
 var app = express();
 var RedisStore = require('connect-redis')(express);
-mongoose.connect('mongodb://localhost/name-of-database');
+mongoose.connect('mongodb://localhost/band-up-final');
 
 // configure express
 require('./config').initialize(app, RedisStore);
 
 // routes
 app.get('/', home.index);
+
+//user routes
+app.get('/signUp', users.signUp);
+app.post('/create', users.create);
+app.get('/login',users.login);
+app.get('/logout',users.logout);
+app.put('/signIn', users.signIn);
+app.get('/dashboard',users.dashboard);
+app.get('/messages',users.messages);
+
+//band routes
+app.post('/makeBand', bands.create);
+app.get('/bands/:id', bands.index);
+app.get('/memberAdd', bands.members);
+app.post('/addMembers/', bands.addMembers);
+app.get('/calendar', bands.getCalendar);
+
+
+
+//event routes
+app.get('/getEvents', events.sendToCalendar);
+app.get('/calendar/:id', events.show);
+app.put('/events/edit', events.edit);
+
+//message routes
+app.get('/messages/:id', messages.createMessage);
+app.post('/messages/sendMessage', messages.sendMessage);
+
+
 
 // start server & socket.io
 var common = require('./sockets/common');
