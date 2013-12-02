@@ -345,7 +345,7 @@ function socketRecievedNewChatMessage(data){
 
 
 function socketConnected(data){
-  console.log(data);
+  console.log('Socket Connected:' + data);
 }
 
 
@@ -354,6 +354,6 @@ function socketConnected(data){
 // *
 
 function htmlAddEvent(data){
-  var event = '<div class="'+'event'+'"><h3>Event Title: <a href= "calendar/' + data.data._id + '">'+data.data.title+'</a></h3><p>Start Time: '+data.data.start+'</p><p>End Time: '+data.data.end+'</p><a class="' + 'delete button alert eventDelete' +'", href="'+data.data._id+'">x</a></div>';
+  var event = '<div class="'+'event'+'" , data-id="'+ data.data._id +'"><h3>Event Title: <a href= "calendar/' + data.data._id + '"><i class="'+'fa fa-edit'+'""></i>'+data.data.title+'</a></h3><p>Start Time: '+data.data.start+'</p><p>End Time: '+data.data.end+'</p><a class="' + 'button alert eventDelete' +'"><i class="'+'fa fa-trash-o'+'"></i></a></div>';
   $('#eventList').prepend(event);
 }

@@ -4,9 +4,12 @@ var Event = mongoose.model('Event');
 var User = mongoose.model('User');
 var __ = require('lodash');
 var bcrypt = require('bcrypt');
+var io;
 
 exports.connection = function(socket){
-  socket.emit('connected', {status: 'connected'});
+	io = this;
+	console.log(io.sockets);
+	socket.emit('connected', {status: 'connected'});
   socket.on('disconnect', socketDisconnect);
   socket.on('addEvent', sockectAddEvent);
   socket.on('signIn', socketSignIn);
@@ -82,7 +85,14 @@ function socketSignIn(data){
 
 }
 
-
+// io.sockets.on('connection',function(socket){
+// 	socket.emit('news', {
+// 		hello: 'world'
+// 	});
+// 	socket.on('my other event',function(data){
+// 		console.log(data);
+// 	});
+// });
 
 
 function socketDisconnect(){
