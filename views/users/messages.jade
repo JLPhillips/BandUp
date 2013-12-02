@@ -7,7 +7,8 @@ block content
 	.row
 		.small-12.columns
 			for u in users
-				a(href='/messages/#{u.id}')= u.name
+				#userBox(style='background-image:url(#{u.image}); background-size:cover; background-position:center;')
+					a(href='/messages/#{u.id}')= u.name
 				br
 	.row
 		.small-12.columns
@@ -16,10 +17,13 @@ block content
 					ul
 						for m in currentUser.messages
 							li: div(data-id='#{m.id}').message
-								h4= m.title
+								h4 
+								|	Title: #{m.title}
+								h6
+								| from - #{m.from}
 								hr
 								h6= m.createdAt
-								p= m.body
+								p message - #{m.body}
 								a.deleteMessage.button.alert x 
 
 			else

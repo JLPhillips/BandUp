@@ -16,6 +16,17 @@ var socket,user,calendar;
 function initialize(){ //---Still Initialize
 
 // *
+// * CHAT INIT && CLICK HANDLERS
+// *
+
+$('#chatbox').hide();
+$('#chatbox').draggable({revert: false, containment: "parent", scroll: false});
+$('#chatButton').on("click", clickChatButton);
+$('#chatsendbutton').on("click", clickChatSendButton);
+
+
+
+// *
 // * VEX ALERT
 // *
 
@@ -38,13 +49,20 @@ $('#mainContent').fadeloader({
   easeLoad: 'linear'
 });
 
+
+$('#membersContainer').fadeloader({ 
+  mode: 'children',
+  fadeSpeed: 1000,
+  easeLoad: 'linear'
+});
+
 // *
 // * FULL WIDTH IMAGES
 // *
 
 $('#section-1').backstretch([
 
-  '../images/bg.jpg',
+  '../images/bg4.jpg',
 
   '../images/bg2.jpg',
 
@@ -79,6 +97,8 @@ $('#section-1').backstretch([
  $('.eventDelete').on('click', clickDeleteEvent);
  $('#eventEdit').on('click', clickEditEvent);
  $('#createMessage').on('click', clickCreateMessage);
+ $('.joinBand').on('click', clickJoinBand);
+ $('.deleteMessage').on('click',clickDeleteMessage);
 
 
 
@@ -146,6 +166,37 @@ $('#section-1').backstretch([
 
 }; //Closing Initialize
 
+// *
+// * CHAT CLICK HANDLER FUNCTIONS
+// *
+
+
+function clickChatButton(){
+  $("#chatbox").toggleClass("hidden");
+  if(!$("#chatbox").hasClass("hidden")){
+    $("#chatbox").hide().fadeIn(500);
+    $("#chatbutton").css("background-color", "#21798a");
+    $("#chatinput").focus();
+  }else{
+    $("#chatbox").show().fadeOut(500);
+    $("#chatbutton").css("background-color", "white");
+  }
+}
+
+function clickChatSendButton(){
+  var comment = $("#chatinput").val();
+  var name = sessionStorage.user;
+  var messages = [];
+
+  if($("#chatinput").val() == ""){
+    vex.dialog.alert("Enter text you must, or chat you will not!");
+  }else{
+    socket.emit('sendChatMessage', {message: comment, username: name});
+  }
+
+  $("#chatinput").val("");
+  $("#chatinput").focus();
+}
 
 // *
 // * CLICK HANDLER FUNCTIONS
@@ -162,21 +213,36 @@ function clickSignUp(e){
 
 
 function clickLogin(e){ //Open Click Login
-  var url = '/signIn';
-  var data = $('#loginForm').serialize();
-  sendAjaxRequest(url,data,'post','put',e,function(data){
-    sessionStorage.user = data.name;
-    user = data.name;
-    vex.dialog.alert('Good Login');
-    window.location.href="/";
-  });
+  if($('#email').val() == '' || $('#password').val()== ''){
+    vex.dialog.alert('You Hast Left The Form Empty..');
+  }else{
+    var url = '/signIn';
+    var data = $('#loginForm').serialize();
+    sendAjaxRequest(url,data,'post','put',e,function(data){
+      sessionStorage.user = data.user.name;
+      user = data.user.name;
+      vex.dialog.alert('Good Login, hello ' + user + '.');
+      window.location.href="/";
+    });
+  }
 } // Close Click Login
 
+
+function clickJoinBand(e){ //Open Click Join Band
+  var url = '/addMemberToBand';
+  var bandId = $(this).parent().data('id');
+  var data = {};
+  data.id = $(this).parent().data('id');
+  console.log(data.id);
+  sendAjaxRequest(url, data, 'post','put', e, function(err,data){
+    vex.dialog.alert("You just joined a band!");
+    window.location.href = "/bands/" + bandId;
+  });
+}//Close Click Join Band
 
 function clickAddEvent(e){ //**Open Click Add Event 
   e.preventDefault();
   var newEvent = {};
-  
   newEvent.title = $("#title").val();
   newEvent.color = $("#color").val();
   newEvent.start = $("#start").val();
@@ -190,7 +256,7 @@ function clickDeleteEvent(e){ //**Open Click Delete Event
   e.preventDefault();
   var eventId = $(this).parent().data('id');
   socket.emit('deleteEvent',{eventId:eventId});
-  $(this).parent().parent().remove();1
+  $(this).parent().remove();
 } //Close Click Delete Event
 
 function clickEditEvent(e){//**Open Click Edit Event
@@ -222,6 +288,17 @@ sendAjaxRequest(url,data,'post',null,null,function(data){
 
 }//Close Click Create Message Event
 
+function clickDeleteMessage(e){//Open Click Delete Message
+e.preventDefault();
+var currentPost = $(this);
+var url = '/messages';
+var data = {};
+data.id = $(this).parent().data('id');
+sendAjaxRequest(url,data,'post','delete',null,function(data){
+  vex.dialog.alert('You Have Deleted A Message.');
+  $(currentPost).parent().parent().remove();
+});
+}//Close Click Delete Message
 
 // *
 // * INITIALIZE SOCKET-IO
@@ -236,11 +313,12 @@ function initializeSocketIO(){
   socket.on('connected', socketConnected);
   socket.on('eventSaved', socketRecievedNewEvent);
   socket.on('deletedEvent', socketDeletedEvent);
+  socket.on('gotMessage', socketRecievedNewChatMessage);
   // socket.on('eventDeleted', sockectRecievedDeletedEvent);
 }
 
 function socketDeletedEvent(){
-	alert('Event Successfully Deleted');
+	vex.dialog.alert('Event Successfully Deleted');
 }
 
 
@@ -258,6 +336,12 @@ function socketRecievedNewEvent(data){
   htmlAddEvent(data);
 }
 
+function socketRecievedNewChatMessage(data){
+  var p = $('<p>');
+    p.append(data.username +": "+ data.message);
+    p.addClass('message');
+    $('#chatwindow').append(p);
+}
 
 
 function socketConnected(data){
@@ -270,6 +354,6 @@ function socketConnected(data){
 // *
 
 function htmlAddEvent(data){
-  var event = '<li class="'+'event'+'"><div><h3>Event Title: <a href= "calendar/' + data.data._id + '">'+data.data.title+'</a></h3><p>Start Time: '+data.data.start+'</p><p>End Time: '+data.data.end+'</p><a class="' + 'delete button alert eventDelete' +'", href="'+data.data._id+'">x</a></div></li>';
+  var event = '<div class="'+'event'+'"><h3>Event Title: <a href= "calendar/' + data.data._id + '">'+data.data.title+'</a></h3><p>Start Time: '+data.data.start+'</p><p>End Time: '+data.data.end+'</p><a class="' + 'delete button alert eventDelete' +'", href="'+data.data._id+'">x</a></div>';
   $('#eventList').prepend(event);
 }

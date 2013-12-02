@@ -31,13 +31,15 @@ block content
 						ul#eventList
 							if(band.events != null)
 								for ev in band.events 
-									li
-										div.event(data-id="#{ev.id}")
-											h3 Event Title :
-												a(href="calendar/#{ev.id}")= ev.title
-											p Start Time: #{ev.start}
-											p End Time: #{ev.end}
-											a.button.alert.eventDelete x
+									div.event(data-id="#{ev.id}")
+										h3 Event Title :
+											a(href="calendar/#{ev.id}")
+												i.fa.fa-edit.small
+												| #{ev.title}
+										p Start Time: #{ev.start}
+										p End Time: #{ev.end}
+										a.button.alert.eventDelete
+											i.fa.fa-trash-o 
 							else
 								h3.
 									Add Events Above

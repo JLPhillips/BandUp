@@ -34,7 +34,7 @@ exports.login = function(req,res){
 
 exports.logout = function(req, res){
   req.session.destroy(function(err){
-    res.send({status: 'ok'});
+    res.redirect('/');
   });
 };
 
@@ -49,7 +49,7 @@ exports.signIn = function(req,res){
 					req.session.userId = user.id;
 					req.session.save(function(err){
 						console.log(req.session.userId);
-						res.send({status:'ok'});
+						res.send({status:'ok', user:user});
 					});
 				});
 			}else{
@@ -65,6 +65,24 @@ exports.dashboard = function(req,res){
 			res.render('users/dashboard',{title:'Welcome ' + user.name, user:user, bands:bands});
 		});
 	});
+}
+
+exports.joinBand = function(req,res){
+	Band.findById(req.body.id,function(err,band){
+		console.log(band);
+		band.members.push(res.locals.user.id);
+		band.save(function(err,band){
+			User.findById(res.locals.user.id,function(err,user){
+				console.log(user);
+				user.band = band.id;
+					user.save(function(err,user){
+						console.log(user);
+						res.send({status:'ok'});
+					});
+				});
+			});
+		});
+
 }
 
 exports.messages = function(req,res){

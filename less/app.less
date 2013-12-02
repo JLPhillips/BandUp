@@ -20,6 +20,62 @@
 100% {-moz-transform: rotate(0deg);}
 }
 
+.black{
+	background-color: black;
+}
+
+.white{
+	color:white;
+}
+
+#footer{
+	width: 100% !important;
+	height: 40px;
+	background-color: black;
+	position: fixed;
+	z-index: 10;
+	bottom: 0px;
+
+	#twitter{
+		position: relative;
+		left: 20px;
+		top: 10px;
+		color:white;
+		&:hover{
+			cursor: pointer;
+			color: #29B3DF;
+		}
+	}
+	#facebook{
+		position: relative;
+		left: 35px;
+		top: 10px;
+		color:white;
+		transition:all 100ms ease-in-out;
+		&:hover{
+			cursor: pointer;
+			color: #2C68DB;
+		}
+	}
+
+	#chatButton{
+		float: right;
+		bottom:18px;
+		width: 100px;
+		height: 40px;
+		border:1px solid black;
+		color:black;
+		background-color: white;
+		text-align: center;
+		padding: 10px;
+
+		&:hover{
+			cursor: pointer;
+		}
+	}
+
+}
+
 
 body{
   background-color: @base;
@@ -37,7 +93,7 @@ body{
 	margin:0px auto;
 	position: relative;
 	left:350px;
-	top:100px;
+	top:70px;
 }
 
 #dots{
@@ -45,7 +101,7 @@ body{
 	margin: 0px auto;
 	position: relative;
 	left:135px;
-	top:100px;
+	top:70px;
 	-webkit-animation-name: spinCycle;
 	-webkit-animation-duration: 100s;
 	-webkit-animation-timing-function: linear;
@@ -60,7 +116,7 @@ body{
 	letter-spacing: 30px;
 	font-weight: normal;
 	position: relative;
-	top:110px;
+	top:80px;
 	color:white;
 	text-shadow:0px 3px 4px rgba(0, 0, 0, 0.5);
 }
@@ -70,7 +126,7 @@ body{
 	text-align: center;
 	letter-spacing: 10px;
 	margin-bottom: 30px;
-	top: 130px;
+	top: 90px;
 	color:white;
 }
 
@@ -100,16 +156,14 @@ body{
 
 
 .bu-black-button{
-  float:left;
-  position: relative;
-  left: 230px;
-  top:150px;
+	position: relative;
+	top:120px;
+	left:400px;
 	text-align: center;
 	padding: 20px;
 	font-size: 25px;
 	font-weight: bold;
-	display:block;
-	width: 200px;
+	width: 230px;
 	height: 75px;
 	color:white;
 	background-color: black;
@@ -122,7 +176,7 @@ body{
 	float:left;
 	position: relative;
 	left: 300px;
-	top:150px;
+	top:100px;
 	border:solid 2px black;
 	text-align: center;
 	padding: 18px;
@@ -246,4 +300,114 @@ body{
 			}
 		}
 	}
+}
+
+.memberBox{
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	width: 200px;
+	height: 150px;
+	border: 2px solid black;
+
+	h5{
+		position: relative;
+		color:white;
+		background-color: black;
+		top:100px;
+		width:100px;
+	}
+}
+
+#bandProfileHeader{
+	width: 100% !important;
+	background-color: #333;
+	height: 300px;
+
+	h1{
+		width: 250px;
+		background-color: white;
+		position: relative;
+		top: 240px;
+	}
+}
+
+
+.event{
+	border:2px solid black;
+	padding: 10px;
+	margin-bottom: 20px;
+
+	.eventDelete{
+		background-color: black;
+		top:30px;
+		right: 10px;
+	}
+}
+
+#eventSubmit{
+	background-color: black;
+}
+
+
+#userBox{
+	padding: 20px;
+
+	a{
+		padding: 10px;
+		display: block;
+		background-color: white;
+		width: 90px;
+	}
+}
+
+.message{
+	border:1px solid black;
+	padding: 10px;
+	margin-bottom: 30px;
+}
+
+#dashButton{
+	background-color: white;
+	border:1px solid black;
+	color: black;
+	position: relative;
+	left: 375px;
+	transition: all 400ms ease-in-out;
+	&:hover{
+		background-color: black;
+		color:white;
+	}
+}
+
+#chatbox{
+	padding-top: 10px;
+	left: 700px;
+	bottom:40px;
+	z-index: 15;
+	position: fixed;
+	width: 400px;
+	height: 500px;
+	background-color: black;
+}
+
+#chatwindow{
+	margin: 0px auto;
+	background-color: #AAA;
+	width: 375px;
+	height: 350px;
+	margin-bottom: 10px;
+}
+
+#chatinput{
+	height: 50px;
+}
+
+#chatsendbutton{
+	color:black;
+	background-color: white;
+}
+
+.hidden{
+	display: hidden;
 }

@@ -30,6 +30,7 @@ app.post('/create', users.create);
 app.get('/login',users.login);
 app.get('/logout',users.logout);
 app.put('/signIn', users.signIn);
+app.put('/addMemberToBand', users.joinBand);
 app.get('/dashboard',users.dashboard);
 app.get('/messages',users.messages);
 
@@ -50,7 +51,7 @@ app.put('/events/edit', events.edit);
 //message routes
 app.get('/messages/:id', messages.createMessage);
 app.post('/messages/sendMessage', messages.sendMessage);
-
+app.delete('/messages', messages.delete);
 
 
 // start server & socket.io

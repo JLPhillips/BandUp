@@ -12,10 +12,20 @@ exports.connection = function(socket){
   socket.on('signIn', socketSignIn);
   socket.on('deleteEvent',socketDeleteEvent);
 
+  // CHAT EVENT 
+
+  socket.on('sendChatMessage', function (data){
+  	console.log(data.message, data.username);
+  	var message = data.message;
+  	var username = data.username;
+  	socket.emit('gotMessage', {username:username, message:message});
+  });
+
 	// SOCKET SAVE EVENT
 
   function sockectAddEvent(data){
 	var newEvent = data.data;
+	console.log(newEvent);
 	var event = new Event();
 	event.title = newEvent.title;
 	event.color = newEvent.color;
@@ -24,6 +34,7 @@ exports.connection = function(socket){
 	event.save(function(err,event){
 		console.log(event);
 	User.findOne({name:newEvent.user},function(err,user){
+		console.log('Current User: ' + user);
 		Band.findOne({members:user.id},function(err,band){
 			band.events.push(event.id);
 			band.save(function(err,band){});
@@ -40,9 +51,7 @@ exports.connection = function(socket){
 	function socketDeleteEvent(data){
 		Event.findByIdAndRemove(data.eventId,function(err,deletedEvent){
 			Band.findOne({events:deletedEvent._id}, function(err,band){
-				console.log(band.events);
 				__.remove(band.events, function(ev) {return ev == data.eventId});
-				console.log(band.events);
 				band.save(function(err){
 					socket.emit('deletedEvent',{status:"ok"});
 				});

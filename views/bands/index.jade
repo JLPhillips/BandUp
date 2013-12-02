@@ -1,14 +1,19 @@
 extends ../template/layout
 
 block content
+	#bandProfileHeader(style="background-image: url(#{band.image}); background-position:center; background-size:cover;")
+		.row
+			.small-12.columns
+				h1 #{band.name}
 	.row
 		.small-12.columns
-			h1 Hello #{user.name}, this is #{band.name}'s Dahsboard
-	.row
-		.small-12.columns
-			ul
+			h3 #{band.name} Members
+			hr
+			#membersContainer
 				for mems in band.members
-					li= mems.name
+					.memberBox(style="background-image:url(#{mems.image}); background-position:center; background-size:cover;")
+						h5.memberName= mems.name
+
 	.row
 		.small-12.columns
 			h2 View Your Calendar

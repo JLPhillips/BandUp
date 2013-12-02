@@ -1,10 +1,9 @@
 extends ../template/layout
 
 block content
-  #profileHeader
+  #profileHeader(style="background-image:url(#{user.image});background-size:cover;background-position:center;")
     h1#dashHeader Hello #{user.name}
       i.fa.fa-smile-o#smile
-    img(src="#{user.image}")#profileImage
   .row
     .small-12.columns
       a(href="/messages") 
@@ -14,7 +13,7 @@ block content
     .small-12.columns
       if !user.band
         i.fa.fa-exclamation-triangle#makeBandAlert
-        | You need to make a band!
+        | You need to make(or join) a band!
 
         if bands.length
           .row
@@ -24,8 +23,8 @@ block content
             .small-12.columns
               #bandsContainer
                 for band in bands
-                  .bandBox(data-id="#{band.id}" background="#{band.image}")
-                    h5=band.name
+                  .bandBox(data-id="#{band.id}" style='background-image:url(#{band.image});background-size:cover;background-position:center;')
+                    h5.bandName=band.name
                     button.expand.joinBand 
                       i.fa.fa-plus-square-o.joinIcon 
                         | Join Band
@@ -49,4 +48,4 @@ block content
         .row
           .small-12.columns
               h2 #{user.name}, see what your band has been up to!
-              a(href='bands/#{user.band}').button.expand View Band Page
+              a(href='bands/#{user.band}').button.expand.black View Band Page

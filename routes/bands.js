@@ -13,7 +13,7 @@ exports.create = function(req,res){
 			user.band = band.id;
 			console.log("Saved band to user: " + user.band);
 			user.save(function(err,user){
-					res.redirect('/dashboard', {user:user});
+					res.redirect('/dashboard');
 			});
 		});
 	});
